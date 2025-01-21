@@ -17,12 +17,12 @@ body {
 
 .display , .keypad {
     border: 1px solid black;
+    display: flex;
     flex: 1;
 }
 
 .keypad {
     flex : 5;
-    display: flex;
     gap: 2px;
 }
 
@@ -56,4 +56,11 @@ body {
 .operators button {
     flex: 1;
     font-size: 60px;
+}
+
+.display {
+    justify-content: end;
+    align-items: end;
+    font-size: 100px;
+    padding: 10px;
 }
