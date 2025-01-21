@@ -41,6 +41,7 @@ for(let i = 1; i <= 9 ; i++){
     const numberButton = document.createElement('button')
     numberButton.innerText = i;
     numberButton.setAttribute("style", "flex: 1 1 100px; font-size: 50px")
+    numberButton.addEventListener("click", (event)=>displayContent.innerHTML += event.target.innerText)
     numberPad1To9.appendChild(numberButton)
 }
 
@@ -49,3 +50,7 @@ const numberButton = document.createElement('button')
 numberButton.innerText = 0;
 numberButton.setAttribute("style", "flex: 1; font-size: 50px")
 numberPad0.appendChild(numberButton)
+
+
+const displayContent = document.querySelector('.display')
+displayContent.innerHTML = ""
