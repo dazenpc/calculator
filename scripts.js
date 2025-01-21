@@ -34,3 +34,18 @@ function operate(num1, num2, operator){
             break
     }
 }
+
+const numberPad1To9 = document.querySelector('.oneToNine')
+
+for(let i = 1; i <= 9 ; i++){
+    const numberButton = document.createElement('button')
+    numberButton.innerText = i;
+    numberButton.setAttribute("style", "flex: 1 1 100px; font-size: 50px")
+    numberPad1To9.appendChild(numberButton)
+}
+
+const numberPad0 = document.querySelector('.zero')
+const numberButton = document.createElement('button')
+numberButton.innerText = 0;
+numberButton.setAttribute("style", "flex: 1; font-size: 50px")
+numberPad0.appendChild(numberButton)

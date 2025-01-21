@@ -22,4 +22,33 @@ body {
 
 .keypad {
     flex : 5;
+    display: flex;
+    gap: 2px;
+}
+
+.numbers, .operators {
+    flex: 1;
+    border : 1px solid green;
+}
+
+.numbers {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap : 5px;
+    padding : 10px;
+}
+
+.oneToNine {
+    border: 1px solid blue;
+    flex : 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.zero {
+    flex: 1;
+    border: 1px solid blue;
+    display: flex;
 }
