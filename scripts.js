@@ -71,10 +71,7 @@ function operation(symbol){
 
 function populateDisplay(event){
     iswaitingForInput = false;
-    if(isTriggered){
-        num = 0;
-        isTriggered = false;
-    }
+    if(isTriggered) return;
     if(displayContent.textContent == 0 && event.target.innerText == 0){
         displayContent.innerText = 0;
         num = 0;
@@ -107,12 +104,24 @@ for(let i = 1; i <= 9 ; i++){
     numberPad1To9.appendChild(numberButton)
 }
 
-const numberPad0 = document.querySelector('.zero')
+const utilitiesAndZero = document.querySelector('.utilitiesAndZero')
+
+const backSpaceButton = document.createElement('button')
+backSpaceButton.innerText = 'CE';
+backSpaceButton.setAttribute("style", "flex: 1; font-size: 50px")
+utilitiesAndZero.appendChild(backSpaceButton)
+
 const numberButton = document.createElement('button')
 numberButton.innerText = 0;
 numberButton.setAttribute("style", "flex: 1; font-size: 50px")
 numberButton.addEventListener("click", populateDisplay)
-numberPad0.appendChild(numberButton)
+utilitiesAndZero.appendChild(numberButton)
+
+const clearButton = document.createElement('button')
+clearButton.innerText = 'C'
+clearButton.setAttribute("style", "flex: 1; font-size: 50px")
+clearButton.addEventListener("click", clearAll)
+utilitiesAndZero.appendChild(clearButton)
 
 
 const addition = document.querySelector('.add');
@@ -127,6 +136,16 @@ multiply.addEventListener("click", operate);
 divide.addEventListener("click", operate);
 subtract.addEventListener("click", operate);
 equalTo.addEventListener("click", operate);
+
+function clearAll(event){
+    answer = 0;
+    isOperated = false;
+    isTriggered = false;
+    isInitialiazed = false;
+    iswaitingForInput = true;
+    symbol = '';
+    displayContent.innerText = '';
+}
 
 
 

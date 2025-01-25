@@ -47,11 +47,13 @@ body {
     gap: 7px;
 }
 
-.zero {
+.utilitiesAndZero {
     flex: 1;
     border: 1px solid blue;
     display: flex;
+    gap: 7px;
 }
+
 
 .operators button {
     flex: 1;
