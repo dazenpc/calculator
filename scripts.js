@@ -1,5 +1,5 @@
 let answer = 0;
-let triggered = `Can't divide by zero`
+let triggered = `NOPE!!`
 
 let num;
 let operator;
@@ -53,18 +53,28 @@ function operation(symbol){
                 answer *= num; 
                 break;
             case '/':
-                if(!answer) answer = 1;
-                if(num == 0){
+                if(!isInitialiazed){
+                    answer = num;
+                    isInitialiazed = true;
+                }
+                else if(num == 0){
                     displayContent.innerText = triggered;
                     isTriggered = true;
+                    answer = 0;
+                    isInitialiazed = false;
                 }
-                else answer /= num;
+                else 
+                    answer /= num;
                 break;  
         }
 }
 
 function populateDisplay(event){
     iswaitingForInput = false;
+    if(isTriggered){
+        num = 0;
+        isTriggered = false;
+    }
     if(displayContent.textContent == 0 && event.target.innerText == 0){
         displayContent.innerText = 0;
         num = 0;
