@@ -9,19 +9,27 @@ let isTriggered = false;
 let isInitialiazed = false;
 let iswaitingForInput = true;
 let symbol = '';
+let prevOperation = '';
 
 const displayContent = document.querySelector('.display')
 
 function operate(event){
+    if(isInitialiazed) 
+        prevOperation = symbol;
     operator = event.target.innerText;
     isOperated = true;
     if(operator == '=' && !iswaitingForInput){
         operation(symbol);
-        isEqualized = true;
     }
     else if(operator != '=' && !iswaitingForInput){
-        operation(operator);
-        isEqualized = false;    
+        if(isInitialiazed && prevOperation != operator){
+            num = +displayContent.innerText;
+            operation(prevOperation);
+            prevOperation = symbol
+            displayContent.innerText = answer;
+        }
+        else 
+            operation(operator);   
     }
     if(!isTriggered)
         displayContent.innerText = answer;
