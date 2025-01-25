@@ -59,8 +59,8 @@ body {
 }
 
 .display {
-    justify-content: end;
-    align-items: end;
-    font-size: 100px;
     padding: 10px;
+    justify-content: end;
+    align-items: stretch;
+    font-size: 100px;
 }
