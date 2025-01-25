@@ -31,7 +31,6 @@ function operate(event){
 
 function operation(symbol){
     iswaitingForInput = true;
-    if(num){
         switch(symbol){
             case '+':
                 answer += num;
@@ -47,7 +46,10 @@ function operation(symbol){
                 }
                 break;
             case '*':
-                if(!answer) answer = 1;
+                if(!isInitialiazed){
+                    answer = 1;
+                    isInitialiazed = true;
+                }
                 answer *= num; 
                 break;
             case '/':
@@ -59,13 +61,13 @@ function operation(symbol){
                 else answer /= num;
                 break;  
         }
-    }
 }
 
 function populateDisplay(event){
     iswaitingForInput = false;
     if(displayContent.textContent == 0 && event.target.innerText == 0){
         displayContent.innerText = 0;
+        num = 0;
     }
     else if(checkLength(displayContent.textContent) < 9){
         if(isOperated){
